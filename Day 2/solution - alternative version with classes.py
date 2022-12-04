@@ -61,4 +61,4 @@ with open('input.txt', 'r') as file:
 
         score += player_element.value + player_element.get_match_score(opponent_element)
 
-print(f'Total score: {print_color(score, Color.PURPLE)}')
+print(f'Total score: {print_color(score, Color.PURPLE)}.')

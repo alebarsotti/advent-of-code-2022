@@ -15,4 +15,4 @@ with open('input.txt', 'r') as file:
         total_priorities += item_types.index(repeated_element) + 1
 
 print(f'La suma de prioridades de los ítems repetidos en ambos '
-      f'compartimentos de cada mochila es : {print_color(total_priorities, Color.CYAN)}')
+      f'compartimentos de cada mochila es : {print_color(total_priorities, Color.CYAN)}.')

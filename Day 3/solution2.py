@@ -15,4 +15,4 @@ with open('input.txt', 'r') as file:
         total_priorities += items.index(repeated_element) + 1
 
 print(f'La suma de prioridades de los ítems repetidos en las mochilas de'
-      f' grupos de 3 elfos es: {print_color(total_priorities, Color.CYAN)}')
+      f' grupos de 3 elfos es: {print_color(total_priorities, Color.CYAN)}.')

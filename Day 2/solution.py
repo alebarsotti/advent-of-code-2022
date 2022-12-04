@@ -29,4 +29,4 @@ with open('input.txt', 'r') as file:
             score_calculator = rules[ours]
             score += score_calculator(opponent)
 
-print(f'Total score: {print_color(score, Color.PURPLE)}')
+print(f'Total score: {print_color(score, Color.PURPLE)}.')

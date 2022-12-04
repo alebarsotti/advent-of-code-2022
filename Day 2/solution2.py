@@ -63,4 +63,4 @@ with open('input.txt', 'r') as file:
 
         score += element_values[element_to_play] + result_values[result]
 
-print(f'Total score: {print_color(score, Color.ORANGE)}')
+print(f'Total score: {print_color(score, Color.ORANGE)}.')
