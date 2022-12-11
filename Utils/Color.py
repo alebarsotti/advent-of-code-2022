@@ -7,6 +7,7 @@ class Color:
     YELLOW = '\033[93m'
     RED = '\033[91m'
     ORANGE = '\033[38;2;255;128;0m'
+    LIGHT_GRAY = '\033[38;2;100;100;100m'
 
 
 END = '\033[0m'
