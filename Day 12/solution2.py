@@ -24,7 +24,7 @@ def is_valid_next_position(position_height, next_position):
     next_pos_height_value = height_values.index(next_position_height)
 
     # Movement is only possible when the next position has lower or equal height, or is only 1 above.
-    return pos_height_value >= next_pos_height_value or next_pos_height_value - pos_height_value == 1
+    return pos_height_value + 1 >= next_pos_height_value
 
 
 def get_position_height(position):
