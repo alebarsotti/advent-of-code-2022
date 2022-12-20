@@ -17,12 +17,12 @@ with open('input.txt', 'r') as file:
 
 def get_adjacent_cubes_count(x, y, z):
     count = 0
-    count += 1 if z in droplet_map.get(x + 1, {}).get(y, ()) else 0
-    count += 1 if z in droplet_map.get(x - 1, {}).get(y, ()) else 0
-    count += 1 if z in droplet_map.get(x, {}).get(y + 1, ()) else 0
-    count += 1 if z in droplet_map.get(x, {}).get(y - 1, ()) else 0
-    count += 1 if z + 1 in droplet_map.get(x, {}).get(y, ()) else 0
-    count += 1 if z - 1 in droplet_map.get(x, {}).get(y, ()) else 0
+    count += z in droplet_map.get(x + 1, {}).get(y, ())
+    count += z in droplet_map.get(x - 1, {}).get(y, ())
+    count += z in droplet_map.get(x, {}).get(y + 1, ())
+    count += z in droplet_map.get(x, {}).get(y - 1, ())
+    count += z + 1 in droplet_map.get(x, {}).get(y, ())
+    count += z - 1 in droplet_map.get(x, {}).get(y, ())
     return count
 
 
