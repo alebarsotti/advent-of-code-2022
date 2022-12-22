@@ -1,9 +1,9 @@
 import re
-import time
 
 from sympy import sympify, solve
 
 from Utils.Color import print_color, Color
+from Utils.Timer import timed_method
 
 ROOT_MONKEY = 'root'
 HUMAN_MONKEY = 'humn'
@@ -14,8 +14,7 @@ operations = {
     '+': lambda a, b: a + b,
     '-': lambda a, b: a - b,
     '*': lambda a, b: a * b,
-    '/': lambda a, b: a // b,
-    '=': lambda a, b: a == b,
+    '/': lambda a, b: a // b
 }
 
 
@@ -60,6 +59,7 @@ def solve_operation_monkeys(number_monkeys: dict, operation_monkeys: dict):
         for name in list(operation_monkeys):
             value = operation_monkeys[name]
             result = solve_operation(value, number_monkeys)
+            # Consider value solved if only contains 'x' and no other identifier (or is a number).
             if len(re.findall(r'[a-z]+', str(result))) > 1:
                 operation_monkeys[name] = result
             elif result:
@@ -75,16 +75,14 @@ def solve_equation(equation):
     return solve(equation)[0]
 
 
-if __name__ == '__main__':
-    start = time.perf_counter()
-
+@timed_method
+def main():
     number_monkeys, operation_monkeys = read_monkeys()
-
     monkeys = solve_operation_monkeys(number_monkeys, operation_monkeys)
-
     result = solve_equation(monkeys[ROOT_MONKEY])
-
-    end = time.perf_counter()
-    print(f'Tiempo de procesamiento: {end - start:.6f} segundos')
     print(f'El valor que el humano debe gritar para que el test del mono "{ROOT_MONKEY}" sea exitoso es '
           f'{print_color(result, Color.YELLOW)}.')
+
+
+if __name__ == '__main__':
+    main()

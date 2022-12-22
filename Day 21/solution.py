@@ -1,6 +1,5 @@
-import time
-
 from Utils.Color import print_color, Color
+from Utils.Timer import timed_method
 
 ROOT_MONKEY = 'root'
 
@@ -38,7 +37,6 @@ def solve_operation(value: str, number_monkeys: dict):
 
 def solve_operation_monkeys(number_monkeys: dict, operation_monkeys: dict):
     while operation_monkeys:
-        # monkey_names = operation_monkeys.keys()
         for name in list(operation_monkeys):
             value = operation_monkeys[name]
             result = solve_operation(value, number_monkeys)
@@ -49,15 +47,13 @@ def solve_operation_monkeys(number_monkeys: dict, operation_monkeys: dict):
     return number_monkeys
 
 
-if __name__ == '__main__':
-    start = time.perf_counter()
-
+@timed_method
+def main():
     number_monkeys, operation_monkeys = read_monkeys()
-
     monkeys = solve_operation_monkeys(number_monkeys, operation_monkeys)
-
     root_value = monkeys[ROOT_MONKEY]
-
-    end = time.perf_counter()
-    print(f'Tiempo de procesamiento: {end - start:.6f} segundos')
     print(f'El valor que grita el mono "{ROOT_MONKEY}" es {print_color(root_value, Color.YELLOW)}.')
+
+
+if __name__ == '__main__':
+    main()
